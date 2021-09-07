@@ -32,6 +32,26 @@
   color: white;
 }
 
-/* .Add-data{
-
-} */
+body > table {
+  width: 80%;
+}
+table {
+  border-collapse: collapse;
+}
+table.list {
+  width: 100%;
+  background-color:  #333;
+  color: white;
+}
+td,
+th {
+  border: 2px solid  ;
+  text-align: left;
+  padding: 12px;
+}
+tr:nth-child(even),
+table.list thead > tr {
+  /* background-color:white; */
+ 
+  font-size: small;
+}
