@@ -1,5 +1,6 @@
 import './App.css';
-import React ,{useState}from "react";
+import React, { useState } from "react";
+
 function App() {
     const [formData, setFormData] = useState({
       name: "",
@@ -21,72 +22,96 @@ function App() {
         setPeople([...people, formData]);
       }
     };
- 
+
   return (
-    
-    <div className="container" onSubmit={handleSubmit}>
+    <div className="container">
       <div className="topnav">
-        <a href="#Add-data">ADD DATA</a>
-        <a href="#employee-list">VIEW LIST</a>
-        <a href="#Edit info">EDIT INFO</a>
+        <a href="data">ADD DATA</a>
+        <a href="list">VIEW LIST</a>
+        <a href="eidt">EDIT INFO</a>
       </div>
 
-      <div className="Add-data">
-        <label>name</label>
-        <input type="surname" onSubmit={handleChange}></input>
-        <label>surname</label>
-        <input type="name" onSubmit={handleChange}></input>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <label>name</label>
+          <input
+            type="name"
+            onChange={handleChange}
 
-        <label>task</label>
-        <select onSubmit={handleChange}>
-          <option defaultValue>SELECT TASK</option>
-          <option value="1" onSubmit={handleChange}>
-            HTML
-          </option>
-          <option value="2">CSS</option>
-          <option value="3">REACT</option>
-          <option value="4">REDUX</option>
-        </select>
-        <label>position</label>
-        <select onSubmit={handleChange}>
-          <option defaultValue>SELECT POSITION</option>
-          <option value="1">Junior back-end</option>
-          <option value="2">Junior back-end</option>
-          <option value="3">Senior front-end</option>
-          <option value="4">Senior front-end</option>
-        </select>
+          ></input>
+          <label>surname</label>
+          <input type="surname" onChange={handleChange}></input>
+          <label>task</label>
+          <select onChange={handleChange}>
+            <option defaultValue>SELECT TASK</option>
+            <option value="1" onChange={handleChange}>
+              HTML
+            </option>
+            <option value="3">REACT</option>
+            <option value="2">CSS</option>
+            <option value="4">REDUX</option>
+          </select>
+          <label>position</label>
+          <select onChange={handleChange}>
+            <option defaultValue>SELECT POSITION</option>
+            <option value="1">Junior back-end</option>
+            <option value="2">Junior back-end</option>
+            <option value="3">Senior front-end</option>
+            <option value="4">Senior front-end</option>
+          </select>
+          <label>salary</label>
+          <input type="number" onChange={handleChange}></input>
+          <label>time</label>
+          <input type="time" onChange={handleChange}></input>
+          <label>food</label>
 
-        <label>salary</label>
-        <input type="number" onSubmit={handleChange}></input>
-        <label>time</label>
-        <input type="time" onSubmit={handleChange}></input>
-        <label>food</label>
-        <input type="checkbox" value="meat" onSubmit={handleChange}></input>
-        <input type="checkbox" value="pizza" onSubmit={handleChange}></input>
-        <input type="checkbox" value="pie" onSubmit={handleChange}></input>
-        <input type="checkbox" value="hotdog" onSubmit={handleChange}></input>
-
-        <table class="list" id="employee-list">
-
+          <input
+            placeholder="sandwich"
+            type="checkbox"
+            value="sandwich"
+            onChange={handleChange}
+          ></input>
+          <label>Sandwich</label>
+          <input type="checkbox" value="pizza" onChange={handleChange}></input>
+          <label>pizza</label>
+          <input type="checkbox" value="pie" onChange={handleChange}></input>
+          <label>pie</label>
+          <input type="checkbox" value="hotdog" onChange={handleChange}></input>
+          <label>hotdog</label>
+          <input type="submit" />
+        </form>
+     
+        <table className="list" id="employee-list">
           <thead>
-            {people.map((person, index) => (
+            <tr>
+              <th>name</th>
+              <th>surname</th>
+              <th>taRRsk</th>
+              <th>position</th>
+              <th>salary</th>
+              <th>food</th>
+              <th>date & time</th>
+            </tr>
+           
             
-              <tr key={index}>
-                <th>{person.name}</th>
-                <th>{person.surname}</th>
-                <th>{person.task}</th>
-                <th>{person.position}</th>
-                <th>{person.salary}</th>
-                <th>{person.food}</th>
-                <th>{person.date}</th>
-                <th>{person.time}</th>
-              </tr>
-            ))}
           </thead>
-          <tbody></tbody>
         </table>
+        <ul>
+          {people.map((person, index) => (
+            <li key={index}>
+              <p>{person.name}</p>
+              <p>{person.surname}</p>
+              <p>{person.task}</p>
+              <p>{person.position}</p>
+              <p>{person.salary}</p>
+              <p>{person.food}</p>
+              <p>{person.date}</p>
+              <p>{person.time}</p>
+            </li>
+          ))}
+          
+        </ul>
       </div>
-        
     </div>
   );      
 }
