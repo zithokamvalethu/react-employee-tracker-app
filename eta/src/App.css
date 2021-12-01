@@ -65,7 +65,7 @@ select{
   background-color: cornsilk;
 }
 table {
-  
+  border: 2px solid ;
   border-collapse: collapse;
 }
 table.list {
